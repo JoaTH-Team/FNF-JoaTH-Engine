@@ -12,6 +12,10 @@ class Main extends Sprite
 		super();
 		addChild(new FlxGame(0, 0, TitleState));
 		addChild(new FPS(10, 3, 0xffffff));
-		FlxSprite.defaultAntialiasing = false;
+		SaveData.init();
+
+		FlxSprite.defaultAntialiasing = SaveData.settings.defaultAntialiasing;
+
+		SaveData.saveSettings();
 	}
 }

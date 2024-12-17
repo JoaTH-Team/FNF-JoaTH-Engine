@@ -1,8 +1,8 @@
 {
-    "gfX": 0,
-    "gfY": 0,
-    "logoX": 0,
-    "logoY": 0,
-    "pressEnterX": 0,
-    "pressEnterY": 0
+    "gfX": 512,
+    "gfY": 40,
+    "logoX": -150,
+    "logoY": -100,
+    "pressEnterX": 100,
+    "pressEnterY": 576
 }
