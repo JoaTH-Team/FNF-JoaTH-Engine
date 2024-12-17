@@ -6,3 +6,5 @@
 - [ ] Added a modding system
 - [ ] Added a HScript script system
 - [ ] Re-add Alphabet, Title State,... with rework code and cleaner
+- [ ] Added a Controls system
+- [ ] Re-add `curBeat`, `curStep`, `curSection`,... something that similar to music and beat are needed to re-add with rework code

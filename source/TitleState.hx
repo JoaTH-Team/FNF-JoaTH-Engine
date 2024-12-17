@@ -25,6 +25,8 @@ class TitleState extends MusicBeatState
 	override function create()
 	{
 		super.create();
+		PolyHandler.reload();
+
 		titleJSON = Json.parse(File.getContent(Paths.data("stuff/titleJSON.json")));
 		new FlxTimer().start(1, function(timer:FlxTimer)
 		{
@@ -58,5 +60,9 @@ class TitleState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		if (controls.press(ENTER))
+		{
+			trace("do nothing since nothing added yet");
+		}
 	}
 }
