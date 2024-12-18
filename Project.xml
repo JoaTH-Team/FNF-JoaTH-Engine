@@ -42,9 +42,8 @@
 	<haxelib name="flixel" version="5.8.0" />
 	<haxelib name="flixel-addons" version="3.2.3" />
 	<haxelib name="flixel-ui" version="2.6.1" />
-	<haxelib name="hscript" version="2.3.0" />
+	<haxelib name="hscript" version="2.4.0" />
 	<haxelib name="polymod" version="1.8.0" />
-	<haxelib name="interpret" />
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
@@ -88,7 +87,7 @@
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here-->
-	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hx"/>
+	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hxs"/>
 	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="meta.json" />
 	<haxedef name="POLYMOD_MOD_ICON_FILE" value="icon.png" />
 	<haxedef name="POLYMOD_DEBUG" value="true" if="debug" />
