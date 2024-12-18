@@ -7,7 +7,6 @@ class MusicBeatState extends FlxUIState
 	var controls:Controls;
 	var curBeat:Int = 0;
 	var curStep:Int = 0;
-	var curSection:Int = 0;
 
 	override function create()
 	{
@@ -27,7 +26,7 @@ class MusicBeatState extends FlxUIState
 		super.update(elapsed);
 	}
 
-	private function updateBeat():Void
+	private function updateCurBeat():Void
 	{
 		curBeat = Math.floor(curStep / 4);
 	}

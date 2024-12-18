@@ -20,6 +20,7 @@ class TitleState extends MusicBeatState
 {
 	var titleJSON:TitleData;
 	var gfDance:FlxSprite;
+	var danceLeft:Bool = false;
 	var logoBl:FlxSprite;
 	var titleText:FlxSprite;
 
@@ -37,6 +38,8 @@ class TitleState extends MusicBeatState
 
 	function startIntro()
 	{
+		FlxG.sound.playMusic(Paths.music("menu/freakyMenu"));
+		Conductor.set_bpm(102);
 		logoBl = new FlxSprite(titleJSON.logoX, titleJSON.logoY);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
@@ -60,10 +63,24 @@ class TitleState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
 		super.update(elapsed);
 		if (controls.press(ENTER))
 		{
 			FlxG.switchState(new MainMenuState());
 		}
+	}
+	override function beatHit()
+	{
+		super.beatHit();
+
+		danceLeft = !danceLeft;
+		if (danceLeft)
+			gfDance.animation.play('danceRight');
+		else
+			gfDance.animation.play('danceLeft');
+
+		logoBl.animation.play("bump");
 	}
 }
