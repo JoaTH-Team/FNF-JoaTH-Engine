@@ -20,7 +20,7 @@ class PolyHandler
 		'xml' => TEXT,
 		'json' => TEXT,
 		'txt' => TEXT,
-		'hxs' => TEXT,
+		'hx' => TEXT,
 		'ttf' => FONT,
 		'otf' => FONT
 	];
@@ -88,7 +88,7 @@ class PolyHandler
 	{
 		final output:ParseRules = ParseRules.getDefault();
 		output.addType("txt", TextFileFormat.LINES);
-		output.addType("hxs", TextFileFormat.PLAINTEXT);
+		output.addType("hx", TextFileFormat.PLAINTEXT);
 		return output != null ? output : null;
 	}
 
