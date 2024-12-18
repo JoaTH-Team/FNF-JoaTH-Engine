@@ -28,20 +28,20 @@ class MusicBeatState extends FlxUIState
 	}
 
 	private function updateBeat():Void
-    {
-        curBeat = Math.floor(curStep / 4);
-    }
+	{
+		curBeat = Math.floor(curStep / 4);
+	}
 
-    private function updateCurStep():Void
-    {
-        curStep = Math.floor(Conductor.songPosition / Conductor.stepCrochet);
-    }
+	private function updateCurStep():Void
+	{
+		curStep = Math.floor(Conductor.songPosition / Conductor.stepCrochet);
+	}
 
-    public function stepHit():Void
-    {
-        if (curStep % 4 == 0)
-            beatHit();
-    }
+	public function stepHit():Void
+	{
+		if (curStep % 4 == 0)
+			beatHit();
+	}
 
-    public function beatHit():Void {}
+	public function beatHit():Void {}
 }
