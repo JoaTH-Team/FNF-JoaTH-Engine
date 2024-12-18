@@ -75,6 +75,17 @@ class MainMenuState extends MusicBeatState
 		if (controls.justPress(DOWN))
 			changeItem(1);
 
+		if (controls.justPress(ENTER))
+		{
+			switch (optionsSelect[curSelected])
+			{
+				case "freeplay":
+					FlxG.switchState(new FreeplayState());
+				case "options":
+					FlxG.switchState(new OptionsState());
+			}
+		}
+
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.screenCenter(X);
