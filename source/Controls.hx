@@ -9,4 +9,13 @@ class Controls
 	{
 		return FlxG.keys.anyPressed([key]);
 	}
+	public function justPress(key:FlxKey)
+	{
+		return FlxG.keys.anyJustPressed([key]);
+	}
+
+	public function justRelease(key:FlxKey)
+	{
+		return FlxG.keys.anyJustReleased([key]);
+	}
 }

@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
 import haxe.Json;
@@ -62,7 +63,7 @@ class TitleState extends MusicBeatState
 		super.update(elapsed);
 		if (controls.press(ENTER))
 		{
-			trace("do nothing since nothing added yet");
+			FlxG.switchState(new MainMenuState());
 		}
 	}
 }

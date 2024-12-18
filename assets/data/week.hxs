@@ -1,0 +1,5 @@
+// this file is gonna be a main core for story and freeplay menu
+function onCreate() {
+    storymode.pushSong("Tutorial", "gf");
+    freeplay.pushSong("Tutorial", "gf");
+}
