@@ -23,6 +23,7 @@ class TitleState extends MusicBeatState
 	var danceLeft:Bool = false;
 	var logoBl:FlxSprite;
 	var titleText:FlxSprite;
+	var titleTextEnter:Bool = false;
 
 	override function create()
 	{
@@ -68,7 +69,12 @@ class TitleState extends MusicBeatState
 		super.update(elapsed);
 		if (controls.press(ENTER))
 		{
-			FlxG.switchState(new MainMenuState());
+			titleTextEnter = true;
+			titleText.animation.play('press');
+			new FlxTimer().start(1, function(timer:FlxTimer)
+			{
+				switchState(new MainMenuState());
+			});
 		}
 	}
 	override function beatHit()
@@ -82,5 +88,9 @@ class TitleState extends MusicBeatState
 			gfDance.animation.play('danceLeft');
 
 		logoBl.animation.play("bump");
+		if (!titleTextEnter)
+			titleText.animation.play('idle');
+		else
+			titleText.animation.play('press');
 	}
 }

@@ -44,9 +44,12 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
+		var startY:Float = (FlxG.height - (optionsSelect.length * 160)) / 2;
+		var itemHeight:Float = Math.min(160, FlxG.height / optionsSelect.length);
+
 		for (i in 0...optionsSelect.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(0, 60 + (i * 160));
+			var menuItem:FlxSprite = new FlxSprite(0, startY + (i * itemHeight));
 			menuItem.frames = Paths.getSparrowAtlas("FNF_main_menu_assets");
 			menuItem.animation.addByPrefix('idle', optionsSelect[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionsSelect[i] + " white", 24);
@@ -80,9 +83,9 @@ class MainMenuState extends MusicBeatState
 			switch (optionsSelect[curSelected])
 			{
 				case "freeplay":
-					FlxG.switchState(new FreeplayState());
+					switchState(new FreeplayState());
 				case "options":
-					FlxG.switchState(new OptionsState());
+					switchState(new OptionsState());
 			}
 		}
 

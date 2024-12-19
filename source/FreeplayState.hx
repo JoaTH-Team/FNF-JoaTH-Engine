@@ -18,6 +18,6 @@ class FreeplayState extends MusicBeatState
 	{
 		super.update(elapsed);
 		if (controls.justPress(ESCAPE))
-			FlxG.switchState(new MainMenuState());
+			switchState(new MainMenuState());
 	}
 }

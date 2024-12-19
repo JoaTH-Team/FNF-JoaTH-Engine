@@ -1,0 +1,1 @@
+you can add any scripts if the file on a folder that match to a class name on source, for ex: you put a `test1.hxs` on `TitleState` folder, when open game, it will auto load this file on the `TitleState` and make them run
