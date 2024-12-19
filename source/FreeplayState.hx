@@ -10,6 +10,9 @@ class FreeplayState extends MusicBeatState
 	override function create()
 	{
 		super.create();
+
+		WeekData.loadJsons(false);
+		
 		bg = new FlxSprite(0, 0, Paths.image("menuDesat"));
 		add(bg);
 	}

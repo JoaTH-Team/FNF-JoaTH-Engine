@@ -72,11 +72,8 @@ class MainMenuState extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		if (controls.justPress(UP))
-			changeItem(-1);
-
-		if (controls.justPress(DOWN))
-			changeItem(1);
+		if (controls.justPress(UP) || controls.justPress(DOWN))
+			changeItem(controls.justPress(UP) ? -1 : 1);
 
 		if (controls.justPress(ENTER))
 		{

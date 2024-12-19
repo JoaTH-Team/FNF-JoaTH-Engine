@@ -35,8 +35,14 @@ class Paths
 		return getPath(null, file);
 	}
 
-	inline static public function data(key:String)
-		return file('data/$key');
+	inline public static function getTextArray(path:String):Array<String>
+		return Assets.exists(path) ? [for (i in Assets.getText(path).trim().split('\n')) i.trim()] : [];
+
+	inline static public function json(key:String)
+		return file('data/$key.json');
+
+	inline static public function txt(key:String)
+		return file('data/$key.txt');
 
 	inline static public function video(key:String)
 		return file('videos/$key.mp4');

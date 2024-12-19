@@ -1,3 +1,19 @@
 {
-    
+	"songs": [
+		{
+			"name": "Tutorial",
+			"char": "gf"
+		}
+	],
+	"chars": [
+		"",
+		"bf",
+		"gf"
+	],
+	"name": "TEACHING TIME",
+	"locked": false,
+	"unlockAfter": "",
+	"hideStory": false,
+	"hideFree": false,
+	"hideUntilUnlock": false
 }

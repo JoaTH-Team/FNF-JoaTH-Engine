@@ -21,7 +21,7 @@ class MusicBeatState extends FlxUIState
 		// trace(classNameString);
 
 		// script loading handler
-		var foldersToCheck:Array<String> = [Paths.data('scripts/$classNameString/'), Paths.data("scripts/")];
+		var foldersToCheck:Array<String> = [Paths.file('data/scripts/$classNameString/'), Paths.file("data/scripts/")];
 		for (mod in PolyHandler.getModIDs())
 		{
 			foldersToCheck.push('mods/$mod/data/scripts/$classNameString/');

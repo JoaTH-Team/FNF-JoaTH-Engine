@@ -30,7 +30,7 @@ class TitleState extends MusicBeatState
 		super.create();
 		PolyHandler.reload();
 
-		titleJSON = Json.parse(File.getContent(Paths.data("stuff/titleJSON.json")));
+		titleJSON = Json.parse(File.getContent(Paths.json("stuff/titleJSON")));
 		new FlxTimer().start(1, function(timer:FlxTimer)
 		{
 			startIntro();
@@ -40,7 +40,7 @@ class TitleState extends MusicBeatState
 	function startIntro()
 	{
 		FlxG.sound.playMusic(Paths.music("menu/freakyMenu"));
-		Conductor.set_bpm(102);
+		Conductor.bpm = 102;
 		logoBl = new FlxSprite(titleJSON.logoX, titleJSON.logoY);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
