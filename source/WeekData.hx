@@ -12,7 +12,7 @@ typedef Week =
     var unlockAfter:String;
     var hideStory:Bool;
     var hideFree:Bool;
-    var hideUntilUnlock:Bool
+    var hideUntilUnlock:Bool;
 }
 
 typedef WeekSong = 
