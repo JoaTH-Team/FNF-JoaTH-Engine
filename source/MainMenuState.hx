@@ -9,15 +9,22 @@ import flixel.util.FlxColor;
 
 class MainMenuState extends MusicBeatState
 {
-	var curSelected:Int = 0;
-	var optionsSelect:Array<String> = ["story mode", "freeplay", "options"];
-	var magenta:FlxSprite;
-	var camFollow:FlxObject;
-	var menuItems:FlxTypedGroup<FlxSprite>;
+	public var curSelected:Int = 0;
+	public var optionsSelect:Array<String> = ["story mode", "freeplay", "options"];
+	public var magenta:FlxSprite;
+	public var camFollow:FlxObject;
+	public var menuItems:FlxTypedGroup<FlxSprite>;
+
+	public static var instance:MainMenuState = null;
 
 	override function create()
 	{
+		instance = this;
 		super.create();
+		for (i in 0...scriptArray.length)
+		{
+			scriptArray[i].setVar("mainMenuState", instance);
+		}
 
 		persistentUpdate = persistentDraw = true;
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image("menuBG"));

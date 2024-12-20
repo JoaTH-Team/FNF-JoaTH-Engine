@@ -19,18 +19,25 @@ typedef TitleData =
 class TitleState extends MusicBeatState
 {
 	var titleJSON:TitleData;
-	var gfDance:FlxSprite;
-	var danceLeft:Bool = false;
-	var logoBl:FlxSprite;
-	var titleText:FlxSprite;
-	var titleTextEnter:Bool = false;
+	public var gfDance:FlxSprite;
+	public var danceLeft:Bool = false;
+	public var logoBl:FlxSprite;
+	public var titleText:FlxSprite;
+	public var titleTextEnter:Bool = false;
+
+	public static var instance:TitleState = null;
 
 	override function create()
 	{
+		instance = this;
 		super.create();
 		PolyHandler.reload();
 
 		titleJSON = Json.parse(File.getContent(Paths.json("stuff/titleJSON")));
+		for (i in 0...scriptArray.length)
+		{
+			scriptArray[i].setVar("titleState", instance);
+		}
 		new FlxTimer().start(1, function(timer:FlxTimer)
 		{
 			startIntro();
