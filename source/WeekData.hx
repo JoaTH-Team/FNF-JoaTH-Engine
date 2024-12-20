@@ -53,12 +53,12 @@ class WeekData
 	}
 
 	public static function parseJson(path:String):Week
-	{
-		var rawJson:String = null;
+    {
+        var rawJson:String = null;
 
-		if (Assets.exists(path))
-			rawJson = Assets.getText(path);
+        if (Assets.exists(path))
+            rawJson = Assets.getText(path);
 
-		return Json.parse(rawJson);
-	}
+        return rawJson != null ? Json.parse(rawJson) : null;
+    }
 }
