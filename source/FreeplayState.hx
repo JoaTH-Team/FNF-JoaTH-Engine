@@ -1,14 +1,22 @@
 package;
 
+import WeekData;
 import WeekData.Week;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
+typedef SongMetaData = 
+{
+	var name:String;
+	var week:Int;
+}
+
 class FreeplayState extends MusicBeatState
 {
 	var bg:FlxSprite;
-	var songs:Array<Week> = [];
+	var songs:Array<SongMetaData> = [];
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	var curSelected:Int = 0;
 
@@ -17,9 +25,19 @@ class FreeplayState extends MusicBeatState
 		super.create();
 
 		WeekData.loadJsons(false);
-		for (i in WeekData.weeksList)
+
+		for (i in 0...WeekData.weeksList.length)
 		{
-			songs.push(WeekData.currentLoadedWeeks.get(i));
+			if (!weekIsLocked(WeekData.weeksList[i]))
+			{
+				for (song in WeekData.currentLoadedWeeks.get(Week.weeksList[i]).songs)
+				{
+					songs.push({
+						name: song.name,
+						week: i
+					});
+				}
+			}
 		}
 		
 		bg = new FlxSprite(0, 0, Paths.image("menuDesat"));
@@ -34,6 +52,13 @@ class FreeplayState extends MusicBeatState
 			songText.targetY = i - curSelected;
 			grpSongs.add(songText);
 		}
+	}
+
+	private function weekIsLocked(name:String):Bool
+	{
+		var daWeek:Week = WeekData.currentLoadedWeeks.get(name);
+		return (daWeek.locked
+			&& daWeek.unlockAfter.length > 0); // there was also story code but i had to take it out because no story mode yet lol
 	}
 
 	override function update(elapsed:Float)
