@@ -16,6 +16,9 @@ class MusicBeatState extends FlxUIState
 
 	override function create()
 	{
+		if (SaveData.settings.reloadMods)
+			PolyHandler.reload();
+
 		super.create();
 		classNameString = Type.getClassName(Type.getClass(this));
 		// trace(classNameString);

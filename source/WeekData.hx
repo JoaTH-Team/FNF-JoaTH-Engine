@@ -1,7 +1,10 @@
 package;
 
-import openfl.Assets;
 import haxe.Json;
+import openfl.Assets;
+import sys.io.File;
+
+using StringTools;
 
 typedef Week = 
 {

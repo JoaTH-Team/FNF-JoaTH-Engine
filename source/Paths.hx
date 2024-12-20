@@ -5,9 +5,11 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.system.FlxAssets;
 import openfl.Assets;
 import openfl.media.Sound;
+using StringTools;
 #if sys
 import sys.FileSystem;
 #end
+
 
 @:keep
 @:access(openfl.display.BitmapData)

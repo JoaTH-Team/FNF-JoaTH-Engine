@@ -5,6 +5,7 @@ import flixel.FlxG;
 @:structInit class SaveSetting
 {
 	public var defaultAntialiasing:Bool = true;
+	public var reloadMods:Bool = false;
 }
 
 class SaveData
