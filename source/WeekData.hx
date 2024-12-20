@@ -39,7 +39,7 @@ class WeekData
 		{
 			if (!currentLoadedWeeks.exists(list[i]))
 			{
-				var week:Week = parseJson(Paths.json('data/week/' + list[i]));
+				var week:Week = parseJson(Paths.json('week/' + list[i]));
 				if (week != null)
 				{
 					if (week != null && (isStoryMode && !week.hideStory) || (!isStoryMode && !week.hideFree))
