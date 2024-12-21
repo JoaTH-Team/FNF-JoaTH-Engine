@@ -3,7 +3,7 @@
 - [ ] Added Characters JSON system
 - [X] Added Chart System
 - [ ] Added clean save chart file that compatible to other engine such as Psych (opitinal)
-- [ ] Make Charting State, Characters Editor State,...
+- [ ] Added Charting State and make them more easier to chart
 - [X] Added a modding system
 - [X] Added a HScript script system
 - [ ] Re-add Alphabet, Title State,... with rework code and cleaner

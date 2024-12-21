@@ -4,8 +4,14 @@ import Song.SwagSong;
 
 class PlayState extends MusicBeatState 
 {
+	// static variables
 	public static var SONG:SwagSong;
 	public static var instance:PlayState = null;
+
+	// characters variables
+	public var dad:Character;
+	public var gf:Character;
+	public var boyfriend:Character;
 
 	override public function create()
 	{

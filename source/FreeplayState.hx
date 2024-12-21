@@ -76,7 +76,7 @@ class FreeplayState extends MusicBeatState
 			changeSelection(controls.justPress(UP) ? -1 : 1);
 		if (controls.justPress(ENTER))
 		{
-			trace("not done yet!");
+			switchState(new PlayState());
 		}
 	}
 

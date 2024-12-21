@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxSprite;
 import openfl.display.FPS;
@@ -12,6 +13,7 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
+		FlxG.save.bind('funkin', 'joathEngine');
 		SaveData.init();
 		SaveData.saveSettings();
 		addChild(new FlxGame(0, 0, TitleState));
