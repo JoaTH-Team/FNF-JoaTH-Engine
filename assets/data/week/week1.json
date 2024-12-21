@@ -1,0 +1,30 @@
+{
+	"songs": [
+		{
+			"name": "Bopeebo",
+			"char": "dad",
+			"color": "a047ff"
+		},
+		{
+			"name": "Fresh",
+			"char": "bf",
+			"color": "a047ff"
+		},
+		{
+			"name": "Dad Battle",
+			"char": "dad",
+			"color": "a047ff"
+		}
+	],
+	"chars": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"name": "DADDY DEAREST",
+	"locked": false,
+	"unlockAfter": "",
+	"hideStory": false,
+	"hideFree": false,
+	"hideUntilUnlock": false
+}

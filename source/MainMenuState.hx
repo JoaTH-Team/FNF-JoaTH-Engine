@@ -93,6 +93,9 @@ class MainMenuState extends MusicBeatState
 			}
 		}
 
+		if (controls.justPress(SEVEN))
+			switchState(new EditorState());
+
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.screenCenter(X);

@@ -1,16 +1,18 @@
 package;
 
-import WeekData;
 import WeekData.Week;
-
+import WeekData;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
 
 typedef SongMetaData = 
 {
 	var name:String;
 	var week:Int;
+	var color:String;
 }
 
 class FreeplayState extends MusicBeatState
@@ -30,11 +32,12 @@ class FreeplayState extends MusicBeatState
 		{
 			if (!weekIsLocked(WeekData.weeksList[i]))
 			{
-				for (song in WeekData.currentLoadedWeeks.get(Week.weeksList[i]).songs)
+				for (song in WeekData.currentLoadedWeeks.get(WeekData.weeksList[i]).songs)
 				{
 					songs.push({
 						name: song.name,
-						week: i
+						week: i,
+						color: song.color
 					});
 				}
 			}
@@ -47,11 +50,12 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(90, 320, songs[i].name, true);
+			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].name, true, false);
 			songText.isMenuItem = true;
-			songText.targetY = i - curSelected;
+			songText.targetY = i;
 			grpSongs.add(songText);
 		}
+		changeSelection();
 	}
 
 	private function weekIsLocked(name:String):Bool
@@ -64,7 +68,38 @@ class FreeplayState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		bg.color = FlxColor.interpolate(bg.color, FlxColor.fromString("#" + songs[curSelected].color.toUpperCase()), 0.145);
+
 		if (controls.justPress(ESCAPE))
 			switchState(new MainMenuState());
+		if (controls.justPress(UP) || controls.justPress(DOWN))
+			changeSelection(controls.justPress(UP) ? -1 : 1);
+		if (controls.justPress(ENTER))
+		{
+			trace("not done yet!");
+		}
+	}
+
+	function changeSelection(change:Int = 0)
+	{
+		curSelected += change;
+
+		if (curSelected < 0)
+			curSelected = songs.length - 1;
+		if (curSelected >= songs.length)
+			curSelected = 0;
+
+		var bullShit:Int = 0;
+
+		for (item in grpSongs.members)
+		{
+			item.targetY = bullShit - curSelected;
+			bullShit++;
+
+			item.alpha = 0.6;
+
+			if (item.targetY == 0)
+				item.alpha = 1;
+		}
 	}
 }

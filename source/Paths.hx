@@ -5,11 +5,11 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.system.FlxAssets;
 import openfl.Assets;
 import openfl.media.Sound;
+
 using StringTools;
 #if sys
 import sys.FileSystem;
 #end
-
 
 @:keep
 @:access(openfl.display.BitmapData)
@@ -51,6 +51,9 @@ class Paths
 
 	static public function sound(key:String, ?cache:Bool = true):Sound
 		return returnSound('sounds/$key', cache);
+
+	inline static public function songs(key:String, ?cache:Bool = true):Sound
+		return returnSound('songs/$key', cache);
 
 	inline static public function music(key:String, ?cache:Bool = true):Sound
 		return returnSound('music/$key', cache);

@@ -6,6 +6,9 @@ import flixel.FlxG;
 {
 	public var defaultAntialiasing:Bool = true;
 	public var reloadMods:Bool = false;
+	public var showFPS:Bool = true;
+	public var camZoom:Bool = true;
+	public var downscroll:Bool = false;
 }
 
 class SaveData

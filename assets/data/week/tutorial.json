@@ -2,7 +2,8 @@
 	"songs": [
 		{
 			"name": "Tutorial",
-			"char": "gf"
+			"char": "gf",
+			"color": "ad1a46"
 		}
 	],
 	"chars": [

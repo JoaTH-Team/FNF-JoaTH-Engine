@@ -22,6 +22,7 @@ typedef WeekSong =
 {
     var name:String;
     var char:String;
+	var color:String;
 }
 
 class WeekData
