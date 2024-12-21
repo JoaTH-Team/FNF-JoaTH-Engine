@@ -13,6 +13,7 @@ class MusicBeatState extends FlxUIState
 	var curStep:Int = 0;
 	var classNameString:String = "MusicBeatState"; // in case
 	var scriptArray:Array<HScript> = []; // be sure to clear every time switch state
+	var foldersToCheck:Array<String> = [];
 
 	override function create()
 	{
@@ -24,7 +25,9 @@ class MusicBeatState extends FlxUIState
 		// trace(classNameString);
 
 		// script loading handler
-		var foldersToCheck:Array<String> = [Paths.file('data/scripts/$classNameString/'), Paths.file("data/scripts/")];
+		foldersToCheck.push(Paths.file('data/scripts/$classNameString/'));
+		foldersToCheck.push(Paths.file("data/scripts/"));
+
 		for (mod in PolyHandler.getModIDs())
 		{
 			foldersToCheck.push('mods/$mod/data/scripts/$classNameString/');
